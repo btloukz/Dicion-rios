@@ -1,0 +1,117 @@
+'''dicionario = {
+    "lucasseverx" : "Lucas",
+    "raisson21": "Raisson",
+}
+
+print(dicionario.get("raisson21"))  #GET - ACESSAR ELEMENTOS DE UM DICIONARIO
+
+contato = {}
+contato["@ju_paradinha"] = "Juliana"
+contato["@greicysever"] = "Greicy"
+contato["@ademirdamian"] = "Ademir"
+
+print(len(contato)) #LEN - ACESSAR O TAMANHO DO DICIONARIO
+
+contato.update({"@ju_paradinha": "Julianinha Perigosa"}) #UPDATE - ALTERAR OU INSERIR ELEMENTOS NO DICIONÁRIO
+print(contato.get("@ju_paradinha"))
+contato.update({"@vhcardoso": "Victor"})
+
+if "@vhcardoso" in contato: #IN - VERIFICAR A EXISTêNCIA DE UMA CHAVE NO DICIONÁRIO - MODELO BOOLEANO
+    print(contato.get("@vhcardoso"))
+
+for insta in contato.keys(): #KEYS - VERIFICAR E ACESSAR AS CHAVES DO DICIONÁRIO
+    print(insta)
+
+for valor in contato.values(): #VALUES - VERIFICAR E ACESSAR OS VALORES DO DICIONÁRIO
+    print(valor)
+
+for insta, valor in contato.items(): #ITEMS - ACESSA A DUPLA DE DADOS (CHAVE E VALOR)
+    print(f"{insta} - {valor}")
+
+for insta, valor in sorted (contato.items()): #SORTED - ORDENANDO AS CHAVES
+    print(f"{insta} - {valor}")
+
+from operator import itemgetter #ITEMGETTER - ORDENANDO ITENS PELO VALOR (PRECISA IMPORTAR A BIBLIOTECA)
+for insta, valor in sorted(contato.items(), key=itemgetter(1)):
+    print(f'{insta} - {valor}')
+
+copia = dict(contato) #DICT - COPIA O DICIONARIO
+print(copia)
+
+contato.pop("@vhcardoso") #POP - EXCLUI DADOS DO DICIONÁRIO
+print(contato)
+
+contato.clear() #CLEAR - LIMPA O DICIONARIO
+print(contato)
+print(copia)'''
+
+
+'''produtos = {
+    1: ["Xbox One Slim", 2499.90, 1],
+    2: ["Controle Xbox", 399.90, 2],
+    3: ["TV LG 40 POL", 3199.90, 1],
+    4: ["Controle LG", 54.90, 3]
+}
+
+valor_total = 0
+
+for chave, nome in produtos.items():
+   subtotal = produtos[chave] [1] * produtos[chave][2]
+   print(f'Você optou por {nome[2]} {nome}, e o subtotal do produto ficou em R${subtotal:.2f}')
+   valor_total += subtotal
+print(15 * "-")
+print(f'O valor total da sua compra foi de R${valor_total:.2f}!')'''
+
+'''produtos = {}
+
+while True:
+
+    codigo = int(input('Código: '))
+    nome = input('Produto: ')
+    valor = float(input('Valor: '))
+    qtd = int(input('Quantidade: '))
+
+    prod = []
+
+    prod.append(nome)
+    prod.append(valor)
+    prod.append(qtd)
+
+    produtos.update({codigo:prod})
+    con = input('Deseja continuar? [S/N]')
+    if con == "N" or con == "n":
+        break
+total = 0
+
+for codigo, prod in produtos.items():
+        subtotal = produtos[codigo][1] * produtos[codigo][2]
+        print(f'Você optou por {prod[2]} {prod}. O Subtotal ficou em R${subtotal:.2f}')
+        total += subtotal
+print(30 * "-")
+print(f'O Total da sua compra foi R${total:.2f}!')
+print(produtos)'''
+
+'''Um usuário do departamento de vendas de uma empresa necessita de um relatório que apresente seus clientes potenciais.
+Para isso, é necessário que o relatório seja ordenado do cliente
+que mais comprou para o que menos comprou. Os dados de
+entrada são razão social e valor total de compras. Considere a
+razão social como sendo a chave identificadora do cliente.'''
+
+clientes = {}
+while True:
+
+    razao = int(input('Digite o cód: '))
+    valor = float(input('Valor total: '))
+
+    preco = []
+
+    preco.append(valor)
+
+    clientes.update({razao:preco})
+    con = input('Deseja continuar informando? [S/N]')
+    if con == "N" or con == "n":
+        break
+
+from operator import itemgetter
+for razao, preco in sorted(clientes.items(), key=itemgetter(1), reverse = True):
+    print(f'{razao} - {preco:}')
