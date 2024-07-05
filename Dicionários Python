@@ -115,3 +115,27 @@ while True:
 from operator import itemgetter
 for razao, preco in sorted(clientes.items(), key=itemgetter(1), reverse = True):
     print(f'{razao} - {preco:}')
+
+voos = {}
+while True:
+
+    cod = int(input('Informe o num do voo: '))
+    origem = input('Informe o estado de origem: ')
+    destino = input('Informe o estado de destino: ')
+
+    info = []
+
+    info.append(origem)
+    info.append(destino)
+    voos.update({cod:info})
+    con = input('Deseja continuar? [S/N]')
+    if con == "N" or con == "n":
+        break
+
+for cod, info in voos.items():
+    print(f'Voo {cod} com origem em {info[0]} e destino em {info[1]}.')
+
+if info[0] == "Natal":
+    print(f'A quantidade de voos saindo de Natal é de {info.count("Natal")}.')
+else:
+    print('Não existem voos saindo de Natal.')
